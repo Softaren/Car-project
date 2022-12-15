@@ -25,10 +25,15 @@ pwm2=GPIO.PWM(m2_enable, 100)
 
 pwm.start(0)
 pwm2.start(0)
-GPIO.output(m1_enable, True)
-GPIO.output(m2_enable, True)
 
 def drive(speed):
+
+    #Joystick middle
+    if(speed == 499):
+        pwm.ChangeDutyCycle(0) # change the duty cycle
+        pwm2.ChangeDutyCycle(0) # change the duty cycle
+        return
+
     # 472 // 479
     if(speed > 479):
         percentage = ((speed - 479) / (1023 - 479)) * 100
