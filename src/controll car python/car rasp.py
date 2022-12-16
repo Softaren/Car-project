@@ -8,4 +8,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
     while True:
         (Y_value, X_value) = read_joystick().split("|")
         
-        s.sendto(str.encode("\n".join([str(Y_value.rstrip()), str(X_value.rstrip())])), (UDP_IP, UDP_PORT))
+        s.sendto(str.encode("|".join(["j", str(X_value.rstrip()), str(Y_value.rstrip())])), (UDP_IP, UDP_PORT))

@@ -15,6 +15,6 @@ print("Listening... on ", UDP_IP, " with port ", UDP_PORT)
 def wait_for_controller_commands():
     while True:
         data, addr = sock.recvfrom(2048) # buffer size is 1024 bytes
-        (Y_value, X_value) = data.decode('utf-8').split('\n')
-        drive(int(Y_value))
-        steer(int(X_value))
+        (c, x_value, y_value) = data.decode('utf-8').split('|')
+        drive(c, float(y_value))
+        steer(c, float(x_value))
