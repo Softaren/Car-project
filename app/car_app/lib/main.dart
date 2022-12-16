@@ -68,11 +68,8 @@ class _JoystickExampleState extends State<JoystickExample> {
             mode: _joystickMode,
             listener: (details) {
               setState(() {
-                String x = details.x.toStringAsFixed(2);
-                String y = details.y.toStringAsFixed(2);
-
-                print(x);
-                print(y);
+                final x = details.x.toStringAsFixed(2);
+                final y = details.y.toStringAsFixed(2);
 
                 carSocket.sendMessage("a|$x|$y");
               });
