@@ -56,17 +56,25 @@ class _JoystickExampleState extends State<JoystickExample> {
 
   @override
   Widget build(BuildContext context) {
+    String x;
+    String y;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Align(
           alignment: Alignment.center,
           child: Joystick(
+            onStickDragEnd: () {
+              carSocket.sendMessage("a|0|0");
+            },
             mode: _joystickMode,
             listener: (details) {
               setState(() {
                 String x = details.x.toStringAsFixed(2);
                 String y = details.y.toStringAsFixed(2);
+
+                print(x);
+                print(y);
 
                 carSocket.sendMessage("a|$x|$y");
               });
