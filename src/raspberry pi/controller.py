@@ -1,5 +1,6 @@
 import socket as s
 from engine import drive
+from steering import steer
  
 UDP_IP = "192.168.2.121"
 UDP_PORT = 65432
@@ -16,4 +17,4 @@ def wait_for_controller_commands():
         data, addr = sock.recvfrom(2048) # buffer size is 1024 bytes
         (Y_value, X_value) = data.decode('utf-8').split('\n')
         drive(int(Y_value))
-        #Steer(X_value)
+        steer(int(X_value))
