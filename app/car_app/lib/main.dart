@@ -56,8 +56,6 @@ class _JoystickExampleState extends State<JoystickExample> {
 
   @override
   Widget build(BuildContext context) {
-    String x;
-    String y;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
