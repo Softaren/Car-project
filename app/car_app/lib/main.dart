@@ -24,11 +24,11 @@ CarSocket carSocket = CarSocket();
 void main() {
   carSocket.main();
 
-  runApp(const JoystickExampleApp());
+  runApp(const JoystickPage());
 }
 
-class JoystickExampleApp extends StatelessWidget {
-  const JoystickExampleApp({Key? key}) : super(key: key);
+class JoystickPage extends StatelessWidget {
+  const JoystickPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,20 +38,20 @@ class JoystickExampleApp extends StatelessWidget {
           title: const Text('Car app'),
           backgroundColor: Colors.black38,
         ),
-        body: const JoystickExample(),
+        body: const JoystickWidget(),
       ),
     );
   }
 }
 
-class JoystickExample extends StatefulWidget {
-  const JoystickExample({Key? key}) : super(key: key);
+class JoystickWidget extends StatefulWidget {
+  const JoystickWidget({Key? key}) : super(key: key);
 
   @override
-  _JoystickExampleState createState() => _JoystickExampleState();
+  _JoystickWidgetState createState() => _JoystickWidgetState();
 }
 
-class _JoystickExampleState extends State<JoystickExample> {
+class _JoystickWidgetState extends State<JoystickWidget> {
   final JoystickMode _joystickMode = JoystickMode.all;
 
   @override
@@ -70,48 +70,9 @@ class _JoystickExampleState extends State<JoystickExample> {
               setState(() {
                 final x = details.x.toStringAsFixed(2);
                 final y = details.y.toStringAsFixed(2);
-
                 carSocket.sendMessage("a|$x|$y");
               });
             },
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class JoystickModeDropdown extends StatelessWidget {
-  final JoystickMode mode;
-  final ValueChanged<JoystickMode> onChanged;
-
-  const JoystickModeDropdown(
-      {Key? key, required this.mode, required this.onChanged})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 16.0),
-        child: FittedBox(
-          child: DropdownButton(
-            value: mode,
-            onChanged: (v) {
-              onChanged(v as JoystickMode);
-            },
-            items: const [
-              DropdownMenuItem(
-                  child: Text('All Directions'), value: JoystickMode.all),
-              DropdownMenuItem(
-                  child: Text('Vertical And Horizontal'),
-                  value: JoystickMode.horizontalAndVertical),
-              DropdownMenuItem(
-                  child: Text('Horizontal'), value: JoystickMode.horizontal),
-              DropdownMenuItem(
-                  child: Text('Vertical'), value: JoystickMode.vertical),
-            ],
           ),
         ),
       ),
