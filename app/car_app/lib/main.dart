@@ -7,28 +7,9 @@ import 'package:flutter_joystick/flutter_joystick.dart';
 
 // TODO add error handling when the connection is not found.
 // Show the user the state of the connection.
+
 final socketBloc = getIt<SocketBloc>();
 final carSocket = getIt<CarSocket>();
-
-// class CarSocket {
-//   String addressValue = "192.168.2.121";
-
-//   late RawDatagramSocket udpSocket;
-
-//   Future main() async {
-//     udpSocket = await RawDatagramSocket.bind(InternetAddress.anyIPv4, 65432);
-
-//     socketBloc.add(ConnectionInfo(status: "Connected"));
-//     udpSocket.broadcastEnabled = true;
-//   }
-
-//   void sendMessage(String basicMessage) async {
-//     udpSocket.send(const Utf8Codec().encode(basicMessage),
-//         InternetAddress(addressValue), 65432);
-//   }
-// }
-
-// CarSocket carSocket = CarSocket();
 
 void main() {
   configureInjection();
