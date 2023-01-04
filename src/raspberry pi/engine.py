@@ -34,7 +34,6 @@ def drive(c, speed):
     #Joystick middle
     print(speed)
     if((speed == 0 and c == "a") or speed == 499):
-        print("Still")
         pwm.ChangeDutyCycle(0) # change the duty cycle
         pwm2.ChangeDutyCycle(0) # change the duty cycle
         return
@@ -49,7 +48,6 @@ def drive(c, speed):
             GPIO.output(m2_dir2, False)
         else:
             percentage = round(scale_joystick_value(speed, (0, -1), (0, 100)), 2)
-            print("1", percentage)
             GPIO.output(m1_dir1, False)
             GPIO.output(m1_dir2, True)
             GPIO.output(m2_dir1, False)
@@ -63,7 +61,6 @@ def drive(c, speed):
             GPIO.output(m2_dir2, True)
         else:
             percentage = round(scale_joystick_value(speed, (0, +1), (0, 100)), 2)
-            print("2", percentage)
             GPIO.output(m1_dir1, True)
             GPIO.output(m1_dir2, False)
             GPIO.output(m2_dir1, True)
