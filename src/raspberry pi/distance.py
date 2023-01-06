@@ -27,5 +27,4 @@ def distance():
     TimeElapsed = StopTime - StartTime
     distance = (TimeElapsed * 34300) / 2
     
-    print("Distance, " + str(distance))
     return distance
