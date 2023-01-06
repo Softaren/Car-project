@@ -107,9 +107,7 @@ class _JoystickWidgetState extends State<JoystickWidget> {
                         child: const Text('Connect'),
                         onPressed: () {
                           setState(() {
-                            carSocket.addressValue = "";
                             socketBloc.add(ConnectionInfo(status: "Connected"));
-
                             socketBloc
                                 .add(IpAdressInfo(ipAdress: myController.text));
                             carSocket.addressValue = myController.text;
