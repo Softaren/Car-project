@@ -1,5 +1,4 @@
 from gpiozero import Servo
-from time import sleep
 
 from gpiozero.pins.pigpio import PiGPIOFactory
 
@@ -17,3 +16,5 @@ def steer(c, pos):
         percentage = round(scale_joystick_value(float(pos), (-1, +1), (-0.25, +0.25)), 2)
 
     servo.value = percentage
+
+
