@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 class SocketState {
   String? connectionState;
@@ -26,7 +25,6 @@ class IpAdressInfo extends SocketEvent {
   IpAdressInfo({required this.ipAdress});
 }
 
-@injectable
 class SocketBloc extends Bloc<SocketEvent, SocketState> {
   SocketBloc() : super(SocketState()) {
     on<LoadEvent>((event, emit) async {});

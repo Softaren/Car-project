@@ -1,18 +1,13 @@
 import 'package:car_app/blocs/socket_state.dart';
 import 'package:car_app/utils/car_socket.dart';
-import 'package:car_app/utils/container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 
-// TODO add error handling when the connection is not found.
-// Show the user the state of the connection.
-
-final socketBloc = getIt<SocketBloc>();
-final carSocket = getIt<CarSocket>();
+final socketBloc = SocketBloc();
+final carSocket = CarSocket(addressValue: '0.0.0.0', status: 'Not Connected');
 
 void main() {
-  configureInjection();
   carSocket.main();
   socketBloc.add(IpAdressInfo(ipAdress: "No IP-adress"));
   socketBloc.add(ConnectionInfo(status: "Not connected"));

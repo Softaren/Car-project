@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:car_app/utils/container.dart';
-import 'package:car_app/blocs/socket_state.dart';
 
 class CarSocket {
-  final socketBloc = getIt<SocketBloc>();
   String addressValue;
   String status;
   late RawDatagramSocket udpSocket;
