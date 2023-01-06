@@ -5,7 +5,6 @@ from steering import steer
 UDP_IP = "192.168.2.8"
 UDP_PORT = 65432
 
-
 def is_connected():
     try:
         print("Checking network")
@@ -27,7 +26,9 @@ while True:
 
 def wait_for_controller_commands():
     while True:
-        data, addr = sock.recvfrom(2048) # buffer size is 1024 bytes
+        data, addr = sock.recvfrom(2048)
         (c, x_value, y_value) = data.decode('utf-8').split('|')
         drive(c, float(y_value))
         steer(c, float(x_value))
+
+        
